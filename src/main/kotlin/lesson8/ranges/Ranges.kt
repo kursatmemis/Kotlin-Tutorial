@@ -1,5 +1,15 @@
 package lesson8.ranges
 
+/**
+ * Kotlinde 'Range', her ikiside aralığa dahil olan iki değer aralığı olarak tanımlanır.
+ *
+ * Range Oluşturmak İçin:
+ * 1. (..) operator
+ * 2. rangeTo()
+ * 3. downTo()
+ *
+ */
+
 fun main(args: Array<String>) {
 
     for (number in 1..10) {
@@ -31,6 +41,7 @@ fun main(args: Array<String>) {
     println("================================")
 
     // Creating Ranges using .. Operator
+    // .. operatoru aslında rangeTo() methodunu çağırır.
 
     for (n in 1..4) {
         println(n)
