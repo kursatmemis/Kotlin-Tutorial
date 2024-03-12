@@ -1,0 +1,75 @@
+
+ Kotlin Scope Functions:
+ - Kotlin dökümantasyonuna göre; bir nesnenin bağlamı(context'i) içerisinde bir kod bloğunu çalıştırmayı sağlayan
+   fonksiyonlardır.
+ - Geçici bir nesne context'inde kod bloğu yürütmemizi sağlar. Bu context içinde nesnenin adını kullanmadan nesneye
+   erişebiliriz.
+ - Scope Function'ların ortak özelliği bir nesne üzerinden çağrılmaları ve bir lambda ifadesini parametre olarak
+   almalarıdır. Bu sayede, nesne üzerinde geçici bir bağlam oluşturup bu bağlam üzerinde lambda ifadesini
+   çalıştırabilmektedirler.
+ - Bu blokları kullanmamızın amacı kodu daha kısa ve daha okunabilir kılmaktır. Aksi taktirde biz bu fonksiyonların
+   yaptığı işleri kendi ürettiğimiz algoritmalar neticesinde zaten yapabilmekteyiz.
+ - Kotlin'de 5 adet scope function vardır:
+ 1. let
+ 2. run
+ 3. with
+ 4. apply
+ 5. also
+
+ - Bu 5 function doğaları gereği birbiriyle çok benzerdir. Ancak aralarındaki kritik farklılıkları anlamak önemlidir.
+ - Bu function'ların arasında 2 kritik farklılık vardır:
+   1. Nesneye erişim tipi (this || it)
+   2. Return ettikleri değer'dir. (object || the last expression of lambda)
+   Nesneye Erişim Tipi: Bu fonksiyonların bazılarında nesneye 'it' keywordü ile, bazılarında ise 'this' keyword'ü
+                        ile erişilir.
+                        Not: this ve it kullanımlarının her ikisinde de aynı özellikler bulunmaktadır. Sadece,
+                        referansın adlandırılma biçimi farklıdır.
+
+     Nesneye 'it' Keyword'ü Kullanarak Erişenler:
+       - let
+       - also
+
+       Nesneye 'this' Keyword'ü Kullanarak Erişenler:
+       - run
+       - with
+       - apply
+
+   Geriye Dönüş Değeri: Scope Function'ın çağrıldıktan sonra geriye ne değer return edeceğidir. Bu konuda iki farklı
+   seçenek bulunmaktadır. Bunlar; 'Nesnenin return edilmesi' ve 'Lambda ifadesinin son satırının retrun edilmesi' dir.
+
+   Geriye Objenin Kendisini Return Edenler: Bunlar geriye objenin kendisini return eder ve bu obje üzerinden
+                                            zincirleme çağrılar yapabiliriz.
+   - also
+   - apply
+
+   Geriye Lambda İfadesindeki Son Satırı Return Edenler: Bunlar son satırı return ederler. Bir fonksiyonun return ettiği
+                                                         değeri bir değişkene atamak için kullanabiliriz.
+   - with
+   - run
+   - let
+
+ Aşağıdaki referansta genel olarak kullanımlarını anlayacağımız bir tablo mevcut:
+ https://miro.medium.com/v2/resize:fit:1400/format:webp/1*wnI-T6N5-QGnoNssDcyREw.png
+
+ Kendi Durumumuza Uygun Olarak Hangi Fonksiyonu Nasıl Seçeceğiz?
+ - Teknik olarak birçok durumda bunlar birbirlerinin yerine kullanılabilir.
+ - Ancak bir rehber olması açısından aşağıdakiler baz alınabilir:
+
+ let -> Bir objenin değerinin null olmadığında yapılmasını istediğimiz işlemler var ise bunu kullanırız.
+ with -> Scope içinde nesnenin özelliklerini kullanarak bir şeyler hesaplamamız gerekirse ve bu hesaplama sonucunu
+         bir değere atamamız gerekirse kullanırız.
+         [Şöyle okunabilir: with this object, do the following.]
+ run ->  Hem nesne field'ları üzerinde oynama yapmak hem de bu field'lar üzerinde hesaplama yapıp geriye bir değer
+         return etmek istenildiğinde kullan.
+ apply -> Nesneyi inşa etmek veya field'larını değiştirmek istediğimizde bunu kullanırız.
+          [Şöyle okunabilir: apply the following assignments to the object.]
+ also ->  Nesneyi değiştirmeyen, sadece debug işlemleri için print ya da log kaydı tutmak istediğiniz zaman
+          bunu kullanın. [Şöyle okunabilir: "and also do the following with the object."]
+
+ Yani Özet Şu:
+ 1. Null kontrolü yapcaz ve nesne null değilse bazı işlemler yapmasını isticez -> let
+ 2. Nesnenin field'larını değiştirecez ve geriye bir değer return etmek istemiyoruz -> apply
+ 3. Nesne üzerinde bir işlem yaptık ve 'bunu da yap' dedik (log kaydı vs.) -> also
+ 4. Nesne field'ları üzerinde oynamalar yaptık ve scope içinde hesapladığımız bir değeri return etcez -> run
+ 5. Nesne fonksiyonlarını ya da nesne field'larını kullanarak başka fonksiyonları çağırmak istediğimizde ve geriye
+ bir değer return etmeyeceğimiz zaman -> with. (with this object, do the following. olarak düşünülebilir.

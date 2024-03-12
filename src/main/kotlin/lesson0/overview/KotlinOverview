@@ -1,0 +1,46 @@
+
+ Kotlin Overview:
+ - Kotlin; Java, JavaScript, Python vb. gibi açık kaynaklı bir programlama dili.
+ - Kotlin, yüksek seviyeli ve statik olarak yazılan bir dildir.
+
+   High Level Programming Language:
+   -> Bilgisayarın donanım detaylarına odaklanmadan, insanların daha kolay anlayabileceği ve daha hızlı kod yazabileceği
+      programlama dillerine verilen isimdir. Yani; bilgisayar dilinden uzak, insan diline yakın kodlama yaptığımız
+      programlama dilleridir.
+
+   Static Typed Programming Language:
+   -> Statik olarak yazılan programlama dillerinde, değişkenlerin türleri compiler aşamasında belirlenir ve run time'da
+      değişmez. Bu da daha güvenli kod yazmamıza olanak sağlar.
+
+ - Kotlin, hem 'Functional Programlama' özelliklerini hem de geleneksel Nesne Yönelimli Programlama özelliklerini sağlar.
+
+   Functional Programming:
+   -> Programların temel yapı taşı olarak fonksiyonları kullanır.
+   -> Örneğin; bir fonksiyonun diğer fonksiyona parametre olarak gönderilmesi veya bir fonksiyonun geriye başka bir
+      fonksiyonu return etmesi fonksiyonel programlamanın sınırları içerisindedir.
+   -> Bu yaklaşım, fonksiyon dışında tanımlanmış bir değişkenin değerini, fonksiyon içinde değiştirerek yan etki oluş-
+      turmayı en aza indirmek ister.
+
+
+    Why Kotlin?
+    - Kotlin, popularitesi artan bir programlama dilidir.
+    - Kotlin, farklı platformlarda çalışabilir. (Windows, Mac, Linux etc.)
+    - Kotlin, Java ile %100 uyumludur.
+    - Kotlin şunlar için kullanılabilir:
+      -> Cross-platform Mobile Applications (Çapraz Platform Mobil Uygulamalar)
+         (Birden fazla mobil platformda çalışabilen uygulamları ifade eder.)
+         (Kotlin ile yazılan kodlar Android ve IOS işletim sistemlerinde çalışabilir.)
+      -> Android Application Development (Android Uygulama Geliştirme)
+      -> Web Application Development (Web Uygulama Geliştirime)
+      -> Desktop Application Development (Masaüstü Uygulama Geliştirme)
+      -> Data Science based Application (Veri Bilimi Tabanlı Uygulamalar)
+      -> Server Side Application (Sunucu Tarafı Uygulamalar)
+
+
+      Kotlin Advantages:
+      - Easy to learn.
+      - You can write Kotlin and Java code in the same application.
+      - It's first offical language of Android Application Development.
+      - It supports object-oriented and functional programming.
+      - It is so similar to Java. Therefore, it is very easy for Java developers to remember the syntax of Kotlin
+      - Kotlin gives a better performance and small runtime for any application.
